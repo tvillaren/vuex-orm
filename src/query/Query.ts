@@ -890,6 +890,8 @@ export default class Query {
    * Commit `update` to the state.
    */
   commitUpdate (instances: Data.Instances): Data.Collection {
+    if (Object.keys(instances).length === 0) return [];
+
     this.commit('update', instances, () => {
       this.state.data = { ...this.state.data, ...instances }
     })
