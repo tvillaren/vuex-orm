@@ -3793,6 +3793,8 @@ var Query = /** @class */ (function () {
      */
     Query.prototype.commitUpdate = function (instances) {
         var _this = this;
+        if (Object.keys(instances).length === 0)
+            return [];
         this.commit('update', instances, function () {
             _this.state.data = __assign({}, _this.state.data, instances);
         });
